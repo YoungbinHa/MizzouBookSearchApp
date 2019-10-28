@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6e6969</color>
+    <color name="colorPrimaryDark">#1d1c1d</color>
+    <color name="colorAccent">#3C3F41</color>
+    <color name="colorText">#6e6969</color>
+    <color name="colorSoftYellow">#f9c051</color>
+    <color name="colorMUgoldYellow">#f1b82d</color>
+    <color name="colorMUgoldYellow2">#ecaa1f</color>
+    <color name="colorTitle">#e6e3df</color>
+    <color name="colorRed">#ec4f4f</color>
+
+</resources>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/bookcodeitem_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/itemroundshape"
+            android:gravity="center"
+            android:text="AA"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-light" />
+
+        <RelativeLayout
+            android:id="@+id/bookcodeitem_linearlayoutcontainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <LinearLayout
+                android:id="@+id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/bookcodeitem_bookcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="5dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:text="ac a.145 - ac a.146"
+                    android:fontFamily="sans-serif-light" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="5dp"
+                    android:background="@color/colorRed"/>
+            </LinearLayout>
+
+
+            <ImageButton
+                android:id="@+id/bookcodeitem_starImage"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="5dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/rounded_corners"
+                android:scaleType="centerCrop"
+                android:src="@drawable/baseline_save_alt_black_24dp"
+                android:tint="#B4B1B1" />
+
+            <TextView
+                android:id="@+id/floorTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="3dp"
+                android:text="Floor: "
+                android:fontFamily="sans-serif-light" />
+
+            <TextView
+                android:id="@+id/bookcodeitem_floor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/floorTitle"
+                android:layout_alignStart="@+id/floorTitle"
+                android:layout_marginStart="70dp"
+                android:text="3 East(Middle)"
+                android:layout_toLeftOf="@+id/bookcodeitem_starImage"
+                android:fontFamily="sans-serif-light" />
+
+            <TextView
+                android:id="@+id/rangeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/floorTitle"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="3dp"
+                android:text="Range: "
+                android:fontFamily="sans-serif-light" />
+
+            <TextView
+                android:id="@+id/bookcodeitem_range"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/rangeTitle"
+                android:layout_alignStart="@+id/rangeTitle"
+                android:layout_marginStart="70dp"
+                android:text="Range 51"
+                android:layout_toLeftOf="@+id/bookcodeitem_starImage"
+                android:fontFamily="sans-serif-light"
+                />
+
+            <TextView
+                android:id="@+id/bookcodeitem_howtogo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rangeTitle"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="3dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textSize="12sp"
+                android:text="How to go"
+                android:fontFamily="sans-serif-light" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

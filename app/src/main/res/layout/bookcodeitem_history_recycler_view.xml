@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="2dp">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/history_bookcodeitem_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/itemroundshape"
+            android:gravity="center"
+            android:text="AA"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:layout_marginRight="15dp" />
+
+<!--        -->
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/historyview_black_18dp"-->
+<!--            android:tint="#382702"-->
+<!--            android:layout_marginRight="6dp"/>-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <ImageView
+                android:id="@+id/history_bookmarkimage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/baseline_bookmarks_black_24dp"
+                android:tint="#E9E4E4"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="10dp"/>
+            <TextView
+                android:id="@+id/history_recycler_view_bookcode_text"
+                android:layout_toLeftOf="@+id/history_bookmarkimage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="2dp"
+                android:text="Book code"
+                android:textSize="15dp"
+                android:maxLines="1"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginStart="5dp"
+                android:ellipsize="end"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/history_recycler_view_bookcode_text"
+                android:orientation="horizontal"
+                android:layout_toLeftOf="@+id/history_bookmarkimage"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/baseline_schedule_black_18dp"
+                    android:adjustViewBounds="true"
+                    android:padding="5dp"
+                    android:tint="#7C7C7C" />
+
+                <TextView
+                    android:id="@+id/history_recycler_view_bookcode_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="12sp"
+                    android:text="Search Date"
+                    android:textColor="#7C7C7C"
+                    android:fontFamily="sans-serif-light"
+                    />
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

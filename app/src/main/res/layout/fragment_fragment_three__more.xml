@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.FragmentThree_More"
+    android:orientation="vertical"
+    android:padding="3dp"
+    android:background="#d9d9d9"
+    android:animateLayoutChanges="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="More"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="sans-serif-light"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#9E938F"
+        android:layout_margin="5dp"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragmentthree_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="true"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:scrollbars="vertical"
+        />
+
+
+
+</LinearLayout>
