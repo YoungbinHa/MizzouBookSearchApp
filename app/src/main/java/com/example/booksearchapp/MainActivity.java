@@ -140,13 +140,13 @@ public class MainActivity extends AppCompatActivity implements FragmentOne_Home.
                 Elements hourDetail = doc.select("#hours #hours-break");
                 hourItem.setHourDetail(hours.eq(6).text().split(", ")[1]+ "\n" +hourDetail.text());
             } catch (IOException e) {
-                hourItem.setHourMonday("12:00 am - 12:00 am"+ "\n" +"Open 24 Hours");
-                hourItem.setHourTuesday("12:00 am - 12:00 am"+ "\n" +"Open 24 Hours");
-                hourItem.setHourWednesday("12:00 am - 12:00 am"+ "\n" +"Open 24 Hours");
-                hourItem.setHourThursday("12:00 am - 12:00 am"+ "\n" +"Open 24 Hours");
-                hourItem.setHourFriday("12:00 am - 12:00 am"+ "\n" +"Closes at Midnight");
-                hourItem.setHourSaturday("8:00 am - 12:00 am"+ "\n" +"Closes at Midnight");
-                hourItem.setHourSunday("12:00 am - 12:00 am"+ "\n" +"Open 24 Hours");
+                hourItem.setHourMonday("12:00 am - 5:00 pm");
+                hourItem.setHourTuesday("12:00 am - 5:00 pm");
+                hourItem.setHourWednesday("12:00 am - 5:00 pm");
+                hourItem.setHourThursday("12:00 am - 5:00 pm");
+                hourItem.setHourFriday("12:00 am - 5:00 pm");
+                hourItem.setHourSaturday("12:00 am - 5:00 pm");
+                hourItem.setHourSunday("12:00 am - 5:00 pm");
                 hourItem.setHourDetail("There is no internet Connection. The default time value will be shown");
                 e.getStackTrace();
             }
