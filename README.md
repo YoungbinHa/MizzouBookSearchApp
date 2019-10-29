@@ -28,10 +28,10 @@ This is a BookFinder App for Students that can help them find books more easily 
   Save all the csv file which contains all books' location to local database by using sqlitedatabse<br>
   <br>*example of csv file* <br> <img src="screenshots/csvexample.PNG"/> <br>
   ### Search Function<br>
-    - Search and Touch Event <br>
-    <img src="screenshots/searchandtouchevent.gif" width="300" height="500" /> <br>
-    - Search and Save history <br>
-    <img src="screenshots/searchandsavehistory.gif" width="300" height="500" /> <br>
+  Search and Touch Event <br>
+  <img src="screenshots/searchandtouchevent.gif" width="300" height="500" /> <br>
+  Search and Save history <br>
+  <img src="screenshots/searchandsavehistory.gif" width="300" height="500" /> <br>
 
   ### WebScraping<br>
   Explain Here<br>
