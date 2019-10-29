@@ -418,4 +418,5 @@ I used serveral thrid party libraries. This app is built only for educational pu
 
 ## License
 MizzouBookFinder is Copyright (c) 2019 Youngbin Ha (youngbin567@gmail.com). It is free software, and may be redistributed under the terms specified in the [LICENSE] file.
- [LICENSE]: /LICENSE
+
+[LICENSE]: /LICENSE
