@@ -11,7 +11,7 @@ This is a BookFinder App for Students that can help them find books more easily 
 
 ## Note
 All images and data that contains book's location(+ all drawable images) are not added on this repository because of security reasons and copy right.<br> <br> 
-All book codes and location image displays on here are made by myself which means it is not real data and also not the images that University provided me when I started to develope this app as a IT student Assistant in Library Tech Service Team. <br> <br>
+All book codes and location image displays on here are made by myself or outdated data which means it could be wrong info and also not the images that University provided me when I started to develope this app as a IT student Assistant in Library Tech Service Team. <br> <br>
 I got the data of the hours, location, and contacts of ellis library are from [Official Mizzou Library Website](http://library.missouri.edu/), some are by webscraping, some are just screenshots.
 
 ## Contents
@@ -236,19 +236,122 @@ I got the data of the hours, location, and contacts of ellis library are from [O
   ```
   
   ### Search Function<br>
-  Search and Touch Event <br>
-  <img src="screenshots/searchandtouchevent.gif" width="300" height="500" /> <br>
-  Search and Save history <br>
+  #### Search and Touch Event <br>
+  <img src="screenshots/searchandtouchevent.gif" width="300" height="500" /> <br> <br>
+  Function filter gets a string from edittext and filters data depending on if the string is in range of beginning and ending book code by alphabetical order. <br>
+  ``` java
+  private void filter(String text) {
+        libDataFiltered = new ArrayList<>();
+
+        for (LibData temp : libData) {
+            if (temp.getBeginning().contains(text.toUpperCase())
+                    || temp.getEnding().compareTo(text.toUpperCase()) >= 0
+                    && temp.getBeginning().compareTo(text.toUpperCase()) <= 0) {
+                libDataFiltered.add(temp);
+            }
+        }
+        mlibDataAdapter.filterList(libDataFiltered);
+        // Set onItemClickListener
+        mlibDataAdapter.setOnClick(this);
+        mlibDataAdapter.setOnImageClickClick(this);
+    }
+  ```
+  
+  Also when users touchs a item, onItemClick Listener operates and switch their views to new activity(view) that contains book information with location image and text. <br>
+  ``` java
+  @Override
+    public void onItemClick(int position) {
+        if (searchView.getText().length() == 0) {
+            Intent intent = new Intent(getContext(), DataClickedActivity.class);
+            intent.putExtra(LIBDATA_KEY, libData.get(position));
+            startActivity(intent);
+        } else if (libDataFiltered != null) {
+            Intent intent = new Intent(getContext(), DataClickedActivity.class);
+            intent.putExtra(LIBDATA_KEY, libDataFiltered.get(position));
+            startActivity(intent);
+        }
+    }
+
+  ```
+  
+  #### Search and Save history <br>
   <img src="screenshots/searchandsavehistory.gif" width="300" height="500" /> <br>
+
+  When a history image button is touched by users, onImageClick listener operates. <br>
+  ``` java
+  libDataViewHolder.bookcodeitem_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onImageClick.onImageClicked(i);
+            }
+        });
+  ```
+  
+  The listener saves data into history database with favorite column = 1 so that it can be distinguised which is not. <br>
+  ```java
+  @Override
+    public void onImageClicked(int position) {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy '('EEE')' HH:mm a", Locale.getDefault());
+        String currentDateAndTime = sdf.format(new Date());
+        String empty = "";
+        sqLiteDatabase.execSQL(
+          "INSERT INTO " + tableName2 + "(" +
+                        idColumn + ", " + floorColumn + ", " + rangeColumn + ", " + beginningColumn + ", " +
+                        endingColumn + ", " + mapColumn + ", " + textColumn + ", " + favoriteColumn + ", " +
+                        currentDateAndTimeColumn + ", " + searchTextColumn + ")" +
+                        " SELECT " + idColumn + ", " + floorColumn + ", " + rangeColumn + ", " + beginningColumn + ", " +
+                        endingColumn + ", " + mapColumn + ", " + textColumn + ", 1, '" + currentDateAndTime + "', ''" +
+                        " FROM " + tableName +
+                        " WHERE " + idColumn + " = " + libData.get(position).getId()
+          );
+          
+          ...
+    }
+
+  ```
+  In DBhelper class, findAllFavorite function get all the data that favorite column = 1 so that saved data in history database can be shown in screen. <br>
+  ``` java 
+  public List<LibData> findAllFavoritechecked2() {
+        List<LibData> data = null;
+        try {
+            SQLiteDatabase db = getReadableDatabase();
+            Cursor cursor = db.rawQuery("select * from " + tableName2 + " where " + favoriteColumn + " = 1", null);
+            if (cursor.moveToFirst()) {
+                data = new ArrayList<>();
+                do{
+                    LibData libData = new LibData();
+                    libData.setId(cursor.getInt(10));
+                    libData.setFloor(cursor.getString(1));
+                    libData.setRange(cursor.getString(2));
+                    libData.setBeginning(cursor.getString(3));
+                    libData.setEnding(cursor.getString(4));
+                    libData.setMap(cursor.getString(5));
+                    libData.setText(cursor.getString(6));
+                    libData.setFavorite(cursor.getInt(7));
+                    libData.setDateAndTime(cursor.getString(8));
+                    libData.setSearchText(cursor.getString(9));
+                    data.add(libData);
+                }while (cursor.moveToNext());
+            }
+            db.close();
+        } catch (Exception e) {
+            data = null;
+            e.printStackTrace();
+        }
+        return data;
+    }
+  ```
+  
 
   ### WebScraping<br>
   Explain Here<br>
   <img src="screenshots/wepscraping.gif" width="300" height="500" /> <br>
-### Improvements
+
+## Improvements
 1. Data Normalization
 2. Server Database
 
-### References
+## References
 
-### License
+## License
 This app is a portfolio app for educational purposes
