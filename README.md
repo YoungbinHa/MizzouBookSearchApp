@@ -7,10 +7,10 @@ This is a BookFinder App for Students that can help them find books more easily 
 
 ## Contents
 - [Feature](#feature)
-  - [Basic UI](#basic ui)
-  - [More UI](#more ui)
+  - [Basic UI](#basic-ui)
+  - [More UI](#more-ui)
   - [SQLiteDataBase](#sqlitedatabase)
-  - [Search Function](#search function)
+  - [Search Function](#search-function)
   - [WebScraping](#webscraping)
 - [Improvements](#improvements)
 - [Support](#support)
