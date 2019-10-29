@@ -1,4 +1,4 @@
-# (portflio) MizzouBookSearchApp
+# (Portflio) MizzouBookSearchApp
 Since Ellis Library is a huge library, in the University of Missouri - Columbia, that holds millions books with maze-like structure, sometimes students are having a hard time to find a book what they are looking for.<br>
 This is a BookFinder App for Students that can help them find books more easily and able to save their search history.
 
@@ -7,11 +7,11 @@ This is a BookFinder App for Students that can help them find books more easily 
 
 ## Contents
 - [Feature](#feature)
-  - [Basic UI](#basicui)
-  - [More UI](#basicui)
-  - [SQLiteDataBase](#sqlitedatabase)
-  - [Search Function](#sqlitedatabase)
-  - [WebScraping](#webscraping)
+  - [Basic UI](*basicui)
+  - [More UI](*moreui)
+  - [SQLiteDataBase](*sqlitedatabase)
+  - [Search Function](*sqlitedatabase)
+  - [WebScraping](*webscraping)
 - [Improvements](#improvements)
 - [Support](#support)
 - [License](#license)
