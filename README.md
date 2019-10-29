@@ -68,7 +68,7 @@ I got the data of the hours, location, and contacts of ellis library are from [O
             };
   ```
   
-  For history UI, since it has two parts, header(time) and data, build two viewholder, item and header, and create view depends of a boolean type variable isSection in Libdata value class.
+  For history UI, since it has two parts, header(time) and data, build two viewholder, item and header, and create view depends on a boolean type variable, isSection, in Libdata value class.
  
  ``` java
  public class SectionedRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -344,12 +344,70 @@ I got the data of the hours, location, and contacts of ellis library are from [O
   
 
   ### WebScraping<br>
-  Explain Here<br>
   <img src="screenshots/wepscraping.gif" width="300" height="500" /> <br>
+  For getting latest hours of library, I use [Jsoup](https://jsoup.org/) which is an open souce api for extracting and manipulating data, using the best of DOM, CSS, and jquery-like methods. For location and contact, I simply take screenshots and shows it on the screen. <br> <br>
+  Since it is related with network jobs, I build a class that extends AsyncTask so that webscraping works in background not a main thread. I can simply execute it like <br>
+  ``` java
+  new WebScarping().execute();
+  ```
+  and the class looks like
+  ``` java
+  public class WebScarping extends AsyncTask<Void, Void, Void> {
+        String key = "hours/";
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            try {
+                // Scarping web resources by using Jsoup
+                Document doc = Jsoup.connect(URL + key).get();
+
+                // Set hour table title from web scarping data
+                Elements hourTitle = doc.select("#hours .hours-content .hours-name");
+                hourItem.setHourTitle(hourTitle.text());
+
+                // Set hours for a week from web scarping data
+                Elements hours = doc.select("#hours .hours-content ul .hours-time");
+                Elements hoursMessage = doc.select("#hours .hours-content ul .hours-time .dailymessage");
+                hourItem.setHourMonday(hours.eq(0).text().split("Open|Close")[0] + "\n" + hoursMessage.eq(0).text().split(", ")[0]);
+                hourItem.setHourTuesday(hours.eq(1).text().split("Open|Close")[0] + "\n" + hoursMessage.eq(1).text().split(", ")[0]);
+                hourItem.setHourWednesday(hours.eq(2).text().split("Open|Close")[0] + "\n" + hoursMessage.eq(2).text().split(", ")[0]);
+                hourItem.setHourThursday(hours.eq(3).text().split("Open|Close")[0] + "\n" + hoursMessage.eq(3).text().split(", ")[0]);
+                hourItem.setHourFriday(hours.eq(4).text().split("Open|Close")[0] + "\n" + hoursMessage.eq(4).text().split(", ")[0]);
+                hourItem.setHourSaturday(hours.eq(5).text().split("Open|Close")[0] + "\n" + hoursMessage.eq(5).text().split(", ")[0]);
+                hourItem.setHourSunday(hours.eq(6).text().split("Open|Close")[0] + "\n" + hoursMessage.eq(6).text().split(", ")[0]);
+
+                // Set Details from web scarping data
+                Elements hourDetail = doc.select("#hours #hours-break");
+                hourItem.setHourDetail(hours.eq(6).text().split(", ")[1]+ "\n" +hourDetail.text());
+            } catch (IOException e) {
+                hourItem.setHourMonday("12:00 am - 5:00 pm");
+                hourItem.setHourTuesday("12:00 am - 5:00 pm");
+                hourItem.setHourWednesday("12:00 am - 5:00 pm");
+                hourItem.setHourThursday("12:00 am - 5:00 pm");
+                hourItem.setHourFriday("12:00 am - 5:00 pm");
+                hourItem.setHourSaturday("12:00 am - 5:00 pm");
+                hourItem.setHourSunday("12:00 am - 5:00 pm");
+                hourItem.setHourDetail("There is no internet Connection. The default time value will be shown");
+                e.getStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+        }
+
+
+    }
+  ```
 
 ## Improvements
-1. Data Normalization
-2. Server Database
+**1. Data Normalization** <br>
+Since the two databases with main and history are very related and contains duplicates columne a lot, I can try to build database more efficiently by making all the column unique and less dependency with each other so that make the databases more stable and also less error. <br> <br>
+
+**2. Server Database** <br>
+
 
 ## References
 
