@@ -407,9 +407,15 @@ I got the data of the hours, location, and contacts of ellis library are from [O
 Since the two databases with main and history are very related and contains duplicates columne a lot, I can try to build database more efficiently by making all the column unique and less dependency with each other so that make the databases more stable and also less error. <br> <br>
 
 **2. Server Database** <br>
-
+The location of the books is not constant, and it changes a lot; therefore, users may be misdirected to the wrong place since the image on the screen could be outdated. By setting up a database in a server, the app could get updated location from the server.
 
 ## References
+I used serveral thrid party libraries. This app is built only for educational purposes.
+- [Jsoup](https://jsoup.org/)
+- [Subsampling scale imageview](https://github.com/davemorrissey/subsampling-scale-image-view)
+- [Expandable recyclerview](https://github.com/thoughtbot/expandable-recycler-view)
+- And many information from [StackOverFlow](https://stackoverflow.com/questions)
 
 ## License
-This app is a portfolio app for educational purposes
+MizzouBookFinder is Copyright (c) 2019 Youngbin Ha (youngbin567@gmail.com). It is free software, and may be redistributed under the terms specified in the [LICENSE] file.
+ [LICENSE]: /LICENSE
